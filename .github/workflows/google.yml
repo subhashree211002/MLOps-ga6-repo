@@ -54,8 +54,9 @@ jobs:
       # ✅ Step 6: Deploy to GKE
       - name: Deploy updated image
         run: |
-          kubectl set image deployment/${{ env.DEPLOYMENT_NAME }} ${{ env.IMAGE }}=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.IMAGE }}:latest
+          kubectl set image deployment/${{ env.DEPLOYMENT_NAME }} ${{ env.DEPLOYMENT_NAME }}=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/iris-api:latest
           kubectl rollout status deployment/${{ env.DEPLOYMENT_NAME }}
+          kubectl get pods -o wide
 
       # ✅ Step 7: Verify service
       - name: Verify service
