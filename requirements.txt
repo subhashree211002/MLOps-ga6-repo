@@ -1,6 +1,9 @@
 fastapi
 uvicorn[standard]
 pydantic
+joblib
+numpy
+scikit-learn
 
 # Exporter for Google Cloud
 opentelemetry-exporter-gcp-trace
