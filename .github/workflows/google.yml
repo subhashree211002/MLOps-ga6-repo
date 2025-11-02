@@ -35,8 +35,9 @@ name: 'Build and Deploy to GKE'
 
 on:
   push:
-    branches:
-      - '"main"'
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 env:
   PROJECT_ID: 'mlops-ga-474200' # TODO: update to your Google Cloud project ID
