@@ -3,7 +3,6 @@ from pydantic import BaseModel
 import joblib
 import numpy as np
 import os
-#import pandas as pd
 
 MODEL_PATH = os.getenv("MODEL_PATH", "./model.joblib")
 
