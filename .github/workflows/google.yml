@@ -14,6 +14,7 @@ env:
   REGION: us-central1
   DEPLOYMENT_NAME: iris-deployment
   SERVICE_NAME: iris-service
+  CONTAINER_NAME: iris-container
 
 jobs:
   build-deploy:
@@ -54,7 +55,7 @@ jobs:
       # ✅ Step 6: Deploy to GKE
       - name: Deploy updated image
         run: |
-          kubectl set image deployment/${{ env.DEPLOYMENT_NAME }} ${{ env.DEPLOYMENT_NAME }}=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/iris-api:latest
+          kubectl set image deployment/${{ env.DEPLOYMENT_NAME }} ${{ env.CONTAINER_NAME }}=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/iris-api:latest
           kubectl rollout status deployment/${{ env.DEPLOYMENT_NAME }}
           kubectl get pods -o wide
 
