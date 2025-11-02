@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iris-deployment
+  labels:
+    app: iris
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iris
+  template:
+    metadata:
+      labels:
+        app: iris
+    spec:
+      containers:
+        - name: iris-container
+          image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/iris-api:latest
+          ports:
+            - containerPort: 80
+
