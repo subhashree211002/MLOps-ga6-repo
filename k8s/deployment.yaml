@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: iris-container
-          image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/iris-api:latest
+          image: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.IMAGE }}:latest
           ports:
             - containerPort: 80
 
